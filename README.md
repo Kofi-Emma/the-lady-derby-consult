@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Lady Derby
 
-## Getting Started
+A premium, responsive single-page website for Deborah Judah-Mensah — The Lady
+Derby. Built with Next.js App Router, TypeScript, Tailwind CSS v4, `next/font`,
+`next/image`, and Lucide icons.
 
-First, run the development server:
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Production checks:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+## Editing the website
 
-To learn more about Next.js, take a look at the following resources:
+- Global brand details and navigation: `src/content/site.ts`
+- Landing-page copy and lists: `src/content/landing.ts`
+- Ebook resources: `src/content/products.ts`
+- Social profile URLs: `src/content/social.ts`
+- Brand theme and global styles: `src/app/globals.css`
+- Brand images and ebook covers: `public/images/`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Keep the existing image filenames when replacing an asset to avoid a code
+change. The fourth ebook currently uses a designed placeholder because a cover
+was not supplied.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Forms
 
-## Deploy on Vercel
+Copy `.env.example` to `.env.local` and provide the values needed by your form
+providers.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The contact form posts to `/api/contact`. It validates and sanitizes the
+request, then sends it through Resend when `RESEND_API_KEY` is set. Configure a
+verified sender in `RESEND_FROM_EMAIL`; enquiries are delivered to
+`CONTACT_TO_EMAIL`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The lead magnet and newsletter forms post `FormData` to the public HTTPS
+endpoints in:
+
+- `NEXT_PUBLIC_LEAD_MAGNET_FORM_ACTION`
+- `NEXT_PUBLIC_NEWSLETTER_FORM_ACTION`
+
+These can point to MailerLite, Formspree, or a compatible custom endpoint. The
+frontend displays clear setup guidance instead of pretending a submission
+succeeded when no endpoint is configured.
+
+The free resource PDF itself should be delivered by the chosen email
+automation. No PDF was included in the supplied assets.
+
+## Deploying to Vercel
+
+1. Push the project to a Git repository.
+2. Import it into Vercel as a Next.js project.
+3. Add the variables from `.env.example` in Project Settings → Environment
+   Variables.
+4. Set `NEXT_PUBLIC_SITE_URL` to the production domain.
+5. Add and verify the sending domain in Resend, then set
+   `RESEND_FROM_EMAIL`.
+6. Deploy and submit a test lead-magnet request and contact enquiry.
+
+The build provides the landing page, privacy policy, contact route,
+`robots.txt`, `sitemap.xml`, Open Graph metadata, and JSON-LD schema.

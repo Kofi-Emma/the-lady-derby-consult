@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand-red: #93151b;
+  --color-brand-red-dark: #760f15;
+  --color-brand-gold: #d4a42a;
+  --color-brand-gold-soft: #d5b864;
+  --color-brand-rose: #99555a;
+  --color-brand-ivory: #fbf5e7;
+  --color-brand-champagne: #f7efe2;
+  --color-brand-charcoal: #363637;
+  --color-brand-muted: #6f6662;
+
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-cormorant);
+  --font-script: var(--font-parisienne);
+
+  --background-image-gold-gradient: linear-gradient(
+    135deg,
+    #d5b864 0%,
+    #d4a42a 50%,
+    #b88713 100%
+  );
+  --background-image-empowerment-gradient: linear-gradient(
+    135deg,
+    #93151b 0%,
+    #99555a 55%,
+    #d4a42a 100%
+  );
+}
+
+:root {
+  --background: #fbf5e7;
+  --foreground: #363637;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.grid > * {
+  min-width: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: clip;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-underline-offset: 0.2em;
+}
+
+::selection {
+  background: #d4a42a;
+  color: #363637;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+.hero-pattern {
+  background-image:
+    radial-gradient(circle at 16% 18%, rgba(212, 164, 42, 0.12), transparent 28%),
+    radial-gradient(circle at 88% 82%, rgba(153, 85, 90, 0.12), transparent 30%),
+    linear-gradient(rgba(251, 245, 231, 0.95), rgba(251, 245, 231, 0.95)),
+    repeating-linear-gradient(
+      135deg,
+      transparent 0,
+      transparent 28px,
+      rgba(212, 164, 42, 0.045) 29px,
+      transparent 30px
+    );
+}
+
+.champagne-pattern {
+  background-image:
+    radial-gradient(circle at 10% 16%, rgba(212, 164, 42, 0.1), transparent 24%),
+    radial-gradient(circle at 92% 82%, rgba(147, 21, 27, 0.055), transparent 25%);
+}
+
+.empowerment-pattern {
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.1), transparent 23%),
+    radial-gradient(circle at 88% 82%, rgba(118, 15, 21, 0.22), transparent 30%),
+    linear-gradient(135deg, #93151b 0%, #99555a 55%, #d4a42a 100%);
+}
+
+.wing-shape {
+  border-radius: 100% 0 100% 0;
+  box-shadow:
+    -14px 16px 0 rgba(212, 164, 42, 0.06),
+    -28px 32px 0 rgba(212, 164, 42, 0.035);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #363637;
+  box-shadow: 0 0 0 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
