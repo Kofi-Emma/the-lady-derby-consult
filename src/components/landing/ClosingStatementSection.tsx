@@ -78,14 +78,14 @@ export function ClosingStatementSection({
             </Button>
           </div>
         </div>
-        <div className="relative mx-auto aspect-[4/5] w-[94%] max-w-[470px] self-end">
+        <div className="relative mx-auto aspect-[3/4] w-[94%] max-w-[470px] self-end overflow-hidden">
           <div
             aria-hidden="true"
             className="absolute right-5 bottom-0 left-5 h-[82%] rounded-t-[12rem] border border-brand-gold-soft/28 bg-white/8"
           />
           <Image
             alt="Deborah Judah-Mensah, The Lady Derby"
-            className="object-contain object-bottom drop-shadow-[0_25px_40px_rgba(54,0,8,.32)]"
+            className="object-cover object-bottom drop-shadow-[0_25px_40px_rgba(54,0,8,.32)]"
             fill
             sizes="(max-width: 1024px) 90vw, 40vw"
             src="/images/hero-lady-derby.png"

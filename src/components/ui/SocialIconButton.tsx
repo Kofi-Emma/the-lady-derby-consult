@@ -4,8 +4,8 @@ import {
   FaThreads,
   FaTiktok,
   FaXTwitter,
-  type IconType,
 } from "react-icons/fa6";
+import type { IconType } from "react-icons";
 
 import { cn } from "@/lib/utils";
 import type { SocialLink } from "@/types";

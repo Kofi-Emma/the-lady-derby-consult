@@ -14,7 +14,7 @@ export const products: Product[] = [
     title: "Faith To Legacy",
     description:
       "Helping women transform pain into purpose and purpose into legacy.",
-    cta: "Coming soon",
+    cta: "PURCHASE NOW",
     image: "/images/ebook-faith-to-legacy.png",
     available: false,
   },
@@ -22,7 +22,7 @@ export const products: Product[] = [
     title: "Bible Promises For Your Healing",
     description:
       "Your go-to handbook for healing needed in every area of life.",
-    cta: "Coming soon",
+    cta: "PURCHASE NOW",
     image: "/images/ebook-bible-promises.png",
     available: false,
   },
