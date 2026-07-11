@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -26,6 +26,7 @@ export interface ButtonProps {
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
   onClick?: () => void;
+  style?: CSSProperties;
 }
 
 export function Button({
@@ -39,6 +40,7 @@ export function Button({
   type = "button",
   disabled,
   onClick,
+  style,
 }: ButtonProps) {
   const classes = cn(
     "group inline-flex min-h-12 items-center justify-center gap-2 rounded-full border px-6 py-3 text-center text-[.76rem] font-bold tracking-[.12em] uppercase transition duration-300 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-gold disabled:cursor-not-allowed disabled:opacity-60",
@@ -66,6 +68,7 @@ export function Button({
         href={href}
         onClick={onClick}
         rel={rel}
+        style={style}
         target={target}
       >
         {content}
@@ -79,6 +82,7 @@ export function Button({
       data-motion-button=""
       disabled={disabled}
       onClick={onClick}
+      style={style}
       type={type}
     >
       {content}

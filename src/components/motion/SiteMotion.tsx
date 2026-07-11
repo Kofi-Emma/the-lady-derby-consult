@@ -209,23 +209,82 @@ export function SiteMotion() {
         y: isDesktop ? 32 : 28,
       });
 
-      ScrollTrigger.batch(revealTargets, {
-        batchMax: isDesktop ? 16 : 8,
-        interval: isDesktop ? 0.02 : 0.04,
-        once: true,
-        onEnter: (batch) => {
-          gsap.to(batch, {
-            autoAlpha: 1,
-            clearProps: "transform",
-            duration: isDesktop ? 0.48 : 0.44,
-            ease: isDesktop ? motionEase : "power3.out",
-            scale: 1,
-            stagger: 0,
-            y: 0,
+      if (isDesktop) {
+        ScrollTrigger.batch(revealTargets, {
+          batchMax: 16,
+          interval: 0.02,
+          once: true,
+          onEnter: (batch) => {
+            gsap.to(batch, {
+              autoAlpha: 1,
+              clearProps: "transform",
+              duration: 0.48,
+              ease: motionEase,
+              scale: 1,
+              stagger: 0,
+              y: 0,
+            });
+          },
+          start: "top 88%",
+        });
+      } else {
+        const groupedTargets = new WeakSet<HTMLElement>();
+
+        gsap.utils
+          .toArray<HTMLElement>("main [data-motion-section]")
+          .forEach((section) => {
+            const sectionTargets = revealTargets.filter(
+              (target) =>
+                target.matches("[data-motion-card]") &&
+                target.closest("[data-motion-section]") === section,
+            );
+
+            if (!sectionTargets.length) {
+              return;
+            }
+
+            sectionTargets.forEach((target) => groupedTargets.add(target));
+
+            ScrollTrigger.create({
+              once: true,
+              onEnter: () => {
+                gsap.to(sectionTargets, {
+                  autoAlpha: 1,
+                  clearProps: "transform",
+                  duration: 0.44,
+                  ease: "power3.out",
+                  scale: 1,
+                  stagger: 0,
+                  y: 0,
+                });
+              },
+              start: "top 82%",
+              trigger: section,
+            });
           });
-        },
-        start: "top 88%",
-      });
+
+        const looseTargets = revealTargets.filter(
+          (target) => !groupedTargets.has(target),
+        );
+
+        ScrollTrigger.batch(looseTargets, {
+          batchMax: 8,
+          interval: 0.04,
+          once: true,
+          onEnter: (batch) => {
+            gsap.to(batch, {
+              autoAlpha: 1,
+              clearProps: "transform",
+              duration: 0.44,
+              ease: "power3.out",
+              scale: 1,
+              stagger: 0,
+              y: 0,
+            });
+          },
+          start: "top 88%",
+        });
+      }
     }
 
     const listItems = gsap.utils.toArray<HTMLElement>(

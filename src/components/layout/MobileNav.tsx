@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import type { NavigationItem } from "@/types";
 
-const mobileMenuTransitionMs = 620;
+const mobileMenuTransitionMs = 760;
 
 export function MobileNav({ navigation }: { navigation: NavigationItem[] }) {
   const [open, setOpen] = useState(false);
@@ -69,66 +69,87 @@ export function MobileNav({ navigation }: { navigation: NavigationItem[] }) {
       </button>
       <div
         aria-hidden={!open}
-        className={`fixed inset-0 z-[70] flex h-dvh transform-gpu flex-col bg-brand-ivory p-4 transition-[opacity,transform,filter] duration-[620ms] ease-[cubic-bezier(.22,1,.36,1)] sm:p-6 ${
+        className={`fixed inset-0 z-[70] flex h-dvh transform-gpu flex-col overflow-hidden bg-brand-ivory p-4 transition-[clip-path,opacity,transform] duration-[760ms] ease-[cubic-bezier(.77,0,.175,1)] sm:p-6 ${
           open
-            ? "pointer-events-auto translate-y-0 scale-100 opacity-100 blur-0"
-            : "pointer-events-none translate-y-5 scale-[.985] opacity-0 blur-[2px]"
+            ? "pointer-events-auto translate-y-0 opacity-100"
+            : "pointer-events-none -translate-y-3 opacity-0"
         } ${menuMounted ? "visible" : "invisible"}`}
         id="mobile-navigation"
+        style={{
+          clipPath: open ? "inset(0 0 0 0)" : "inset(0 0 100% 0)",
+        }}
       >
-        <div className="flex items-center justify-between">
-          <a
-            aria-label="The Lady Derby - back to home"
-            className="relative block h-12 w-36 shrink-0 sm:h-14 sm:w-44"
-            href="#home"
-            onClick={closeMenu}
-          >
-            <Image
-              alt="The Lady Derby"
-              className="object-contain object-left"
-              fill
-              sizes="176px"
-              src="/images/logo.png"
-            />
-          </a>
-          <button
-            aria-label="Close navigation menu"
-            className="inline-flex min-h-10 items-center gap-2 rounded-[9px] bg-brand-red px-3 text-[.72rem] font-bold tracking-[.14em] text-white uppercase shadow-[0_14px_35px_rgba(118,15,21,.18)] transition hover:bg-brand-red-dark focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-gold"
-            onClick={closeMenu}
-            type="button"
-          >
-            Close
-            <X aria-hidden="true" className="size-4" />
-          </button>
-        </div>
-        <nav
-          aria-label="Mobile navigation"
-          className="flex min-h-0 flex-1 flex-col pt-10 sm:mx-auto sm:w-full sm:max-w-3xl sm:pt-14"
+        <div
+          className={`flex h-full min-h-0 flex-col transition-[opacity,transform] duration-[520ms] ease-[cubic-bezier(.22,1,.36,1)] ${
+            open ? "translate-y-0 opacity-100 delay-150" : "-translate-y-6 opacity-0"
+          }`}
         >
-          <div
-            aria-hidden="true"
-            className="mb-6 h-px w-full bg-brand-gold/18"
-          />
-          <div className="grid flex-1 content-center gap-2 overflow-y-auto md:grid-cols-2">
-            {navigation.map((item) => (
-              <a
-                className="group flex min-h-14 items-center justify-center rounded-lg bg-brand-charcoal/5 px-4 py-3 text-center text-lg font-semibold text-brand-charcoal uppercase transition duration-300 hover:bg-brand-red hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold sm:min-h-16 sm:text-xl"
-                href={item.href}
-                key={item.href}
-                onClick={closeMenu}
-              >
-                <span>{item.label}</span>
-              </a>
-            ))}
+          <div className="flex items-center justify-between">
+            <a
+              aria-label="The Lady Derby - back to home"
+              className="relative block h-12 w-36 shrink-0 sm:h-14 sm:w-44"
+              href="#home"
+              onClick={closeMenu}
+            >
+              <Image
+                alt="The Lady Derby"
+                className="object-contain object-left"
+                fill
+                sizes="176px"
+                src="/images/logo.png"
+              />
+            </a>
+            <button
+              aria-label="Close navigation menu"
+              className="inline-flex min-h-10 items-center gap-2 rounded-[9px] bg-brand-red px-3 text-[.72rem] font-bold tracking-[.14em] text-white uppercase shadow-[0_14px_35px_rgba(118,15,21,.18)] transition hover:bg-brand-red-dark focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-gold"
+              onClick={closeMenu}
+              type="button"
+            >
+              Close
+              <X aria-hidden="true" className="size-4" />
+            </button>
           </div>
-          <Button
-            className="mt-6 min-h-13 w-full !bg-brand-red px-5 !text-white shadow-[0_16px_38px_rgba(118,15,21,.18)] hover:!bg-brand-red-dark sm:mx-auto sm:max-w-sm"
-            href="#contact"
-            onClick={closeMenu}
+          <nav
+            aria-label="Mobile navigation"
+            className="flex min-h-0 flex-1 flex-col pt-10 sm:mx-auto sm:w-full sm:max-w-3xl sm:pt-14"
           >
-            Book me to speak
-          </Button>
-        </nav>
+            <div
+              aria-hidden="true"
+              className="mb-6 h-px w-full bg-brand-gold/18"
+            />
+            <div className="grid flex-1 content-center gap-2 overflow-y-auto md:grid-cols-2">
+              {navigation.map((item, index) => (
+                <a
+                  className={`group flex min-h-14 items-center justify-center rounded-lg bg-brand-charcoal/5 px-4 py-3 text-center text-lg font-semibold text-brand-charcoal uppercase transition duration-500 ease-[cubic-bezier(.22,1,.36,1)] hover:bg-brand-red hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold sm:min-h-16 sm:text-xl ${
+                    open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                  }`}
+                  href={item.href}
+                  key={item.href}
+                  onClick={closeMenu}
+                  style={{
+                    transitionDelay: open ? `${180 + index * 34}ms` : "0ms",
+                  }}
+                >
+                  <span>{item.label}</span>
+                </a>
+              ))}
+            </div>
+            <Button
+              className={`mt-6 min-h-13 w-full !bg-brand-red px-5 !text-white shadow-[0_16px_38px_rgba(118,15,21,.18)] transition duration-500 ease-[cubic-bezier(.22,1,.36,1)] hover:!bg-brand-red-dark sm:mx-auto sm:max-w-sm ${
+                open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+              }`}
+              href="#contact"
+              onClick={closeMenu}
+              style={{
+                transitionDelay: open
+                  ? `${210 + navigation.length * 34}ms`
+                  : "0ms",
+              }}
+            >
+              Book me to speak
+            </Button>
+          </nav>
+        </div>
       </div>
     </div>
   );
