@@ -5,7 +5,7 @@ export const siteConfig = {
   founder: "Deborah Judah-Mensah",
   tagline: "Rise & Reinvent",
   footerTagline: "Helping Women Heal, Rise, Reinvent & Build Legacy.",
-  email: "theladyderby@gmail.com",
+  email: "info@theladyderbyconsult.com",
   instagramHandle: "@iamtheladyderby",
   description:
     "The Lady Derby, led by Deborah Judah-Mensah, helps women heal, rediscover identity, rebuild confidence, rise through faith, and transform pain into purpose, power, profit, impact, and legacy.",

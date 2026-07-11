@@ -41,4 +41,4 @@ export const iconMap: Record<IconName, LucideIcon> = {
   users: UsersRound,
 };
 
-export const CONTACT_EMAIL = "theladyderby@gmail.com";
+export const CONTACT_EMAIL = "info@theladyderbyconsult.com";

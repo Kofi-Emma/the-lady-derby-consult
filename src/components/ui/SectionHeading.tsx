@@ -1,5 +1,4 @@
 import { Badge } from "@/components/ui/Badge";
-import { DecorativeDivider } from "@/components/ui/DecorativeDivider";
 import { cn } from "@/lib/utils";
 
 interface SectionHeadingProps {
@@ -28,6 +27,7 @@ export function SectionHeading({
         isCentered ? "mx-auto max-w-3xl items-center text-center" : "items-start",
         className,
       )}
+      data-motion-heading=""
     >
       {eyebrow ? (
         <Badge

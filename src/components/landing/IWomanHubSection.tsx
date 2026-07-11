@@ -5,7 +5,7 @@ import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SocialIconButton } from "@/components/ui/SocialIconButton";
-import { socialLinks } from "@/content/social";
+import { iwomanHubSocialLinks } from "@/content/social";
 import type { iwomanHubContent } from "@/content/landing";
 
 export function IWomanHubSection({
@@ -35,7 +35,7 @@ export function IWomanHubSection({
               Become a part of the sisterhood
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
-              {socialLinks.map((social) => (
+              {iwomanHubSocialLinks.map((social) => (
                 <SocialIconButton
                   key={social.platform}
                   size="large"
@@ -46,7 +46,10 @@ export function IWomanHubSection({
           </div>
         </div>
         <div className="relative mx-auto w-full max-w-[520px]">
-          <div className="relative overflow-hidden rounded-[4rem_2rem_4rem_2rem] border border-brand-gold/35 bg-white p-7 shadow-[0_30px_80px_rgba(72,42,30,.13)] sm:p-9">
+          <div
+            className="relative overflow-hidden rounded-[4rem_2rem_4rem_2rem] border border-brand-gold/35 bg-white p-7 shadow-[0_30px_80px_rgba(72,42,30,.13)] sm:p-9"
+            data-motion-panel=""
+          >
             <div className="relative aspect-[1124/384]">
               <Image
                 alt="IWoman Hub — where women rise together"
@@ -81,7 +84,10 @@ export function IWomanHubSection({
               ))}
             </div>
           </div>
-          <span className="absolute -right-5 -bottom-5 flex size-18 items-center justify-center rounded-full bg-brand-red text-brand-gold-soft shadow-xl">
+          <span
+            className="absolute -right-5 -bottom-5 flex size-18 items-center justify-center rounded-full bg-brand-red text-brand-gold-soft shadow-xl"
+            data-motion-float=""
+          >
             <HeartHandshake aria-hidden="true" className="size-7" />
           </span>
         </div>

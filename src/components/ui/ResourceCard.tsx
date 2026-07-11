@@ -6,7 +6,10 @@ import type { Product } from "@/types";
 
 export function ResourceCard({ product }: { product: Product }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-brand-gold/20 bg-white shadow-[0_18px_55px_rgba(72,42,30,.08)] transition duration-300 hover:-translate-y-1 hover:border-brand-gold/55">
+    <article
+      className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-brand-gold/20 bg-white shadow-[0_18px_55px_rgba(72,42,30,.08)] transition duration-300 hover:-translate-y-1 hover:border-brand-gold/55"
+      data-motion-card=""
+    >
       <div className="relative aspect-[4/4.65] overflow-hidden bg-[linear-gradient(145deg,#f4e5ca,#fffaf0)]">
         {product.image ? (
           <Image

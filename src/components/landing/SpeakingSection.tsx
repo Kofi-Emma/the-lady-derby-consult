@@ -26,7 +26,10 @@ export function SpeakingSection({
                 src={content.image}
               />
             </div>
-            <div className="absolute -right-3 bottom-8 flex items-center gap-3 rounded-2xl border border-brand-gold/35 bg-white/92 px-5 py-4 shadow-xl backdrop-blur sm:-right-8">
+            <div
+              className="absolute -right-3 bottom-8 flex items-center gap-3 rounded-2xl border border-brand-gold/35 bg-white/92 px-5 py-4 shadow-xl backdrop-blur sm:-right-8"
+              data-motion-float=""
+            >
               <span className="flex size-10 items-center justify-center rounded-full bg-brand-red text-white">
                 <MicVocal aria-hidden="true" className="size-5" />
               </span>
@@ -89,7 +92,10 @@ export function SpeakingSection({
             </div>
           </div>
         </div>
-        <div className="mt-16 flex flex-col items-start justify-between gap-6 rounded-[2rem] bg-brand-red p-8 text-white shadow-[0_22px_60px_rgba(118,15,21,.2)] sm:flex-row sm:items-center sm:p-10">
+        <div
+          className="mt-16 flex flex-col items-start justify-between gap-6 rounded-[2rem] bg-brand-red p-8 text-white shadow-[0_22px_60px_rgba(118,15,21,.2)] sm:flex-row sm:items-center sm:p-10"
+          data-motion-panel=""
+        >
           <div>
             <p className="text-xs font-bold tracking-[.18em] text-brand-gold-soft uppercase">
               Bring a transformational voice to your room

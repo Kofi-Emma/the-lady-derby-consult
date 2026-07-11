@@ -28,6 +28,7 @@ export function Section({
         toneClasses[tone],
         className,
       )}
+      data-motion-section=""
       {...props}
     />
   );

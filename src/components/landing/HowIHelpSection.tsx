@@ -22,7 +22,10 @@ export function HowIHelpSection({
           {content.services.map((service) => (
             <ServiceCard key={service.title} service={service} />
           ))}
-          <div className="flex min-h-64 flex-col justify-between rounded-[1.75rem] bg-empowerment-gradient p-8 text-white shadow-[0_22px_60px_rgba(118,15,21,.2)]">
+          <div
+            className="flex min-h-64 flex-col justify-between rounded-[1.75rem] bg-empowerment-gradient p-8 text-white shadow-[0_22px_60px_rgba(118,15,21,.2)]"
+            data-motion-panel=""
+          >
             <div>
               <p className="font-script text-3xl text-brand-gold-soft">
                 Your journey matters

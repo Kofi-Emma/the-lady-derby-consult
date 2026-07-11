@@ -62,6 +62,7 @@ export function Button({
     return (
       <a
         className={classes}
+        data-motion-button=""
         href={href}
         onClick={onClick}
         rel={rel}
@@ -75,6 +76,7 @@ export function Button({
   return (
     <button
       className={classes}
+      data-motion-button=""
       disabled={disabled}
       onClick={onClick}
       type={type}

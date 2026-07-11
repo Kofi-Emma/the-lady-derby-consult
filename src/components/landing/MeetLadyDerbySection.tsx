@@ -26,7 +26,10 @@ export function MeetLadyDerbySection({
                 src={content.image}
               />
             </div>
-            <div className="absolute -right-2 -bottom-6 max-w-[260px] rounded-3xl border border-brand-gold/35 bg-brand-red p-5 text-white shadow-xl sm:-right-8">
+            <div
+              className="absolute -right-2 -bottom-6 max-w-[260px] rounded-3xl border border-brand-gold/35 bg-brand-red p-5 text-white shadow-xl sm:-right-8"
+              data-motion-float=""
+            >
               <Heart
                 aria-hidden="true"
                 className="size-5 text-brand-gold-soft"
@@ -52,7 +55,10 @@ export function MeetLadyDerbySection({
             </div>
           </div>
         </div>
-        <div className="mt-20 grid overflow-hidden rounded-[2rem] border border-brand-gold/25 bg-brand-champagne shadow-[0_18px_55px_rgba(72,42,30,.07)] lg:grid-cols-[.75fr_1.25fr]">
+        <div
+          className="mt-20 grid overflow-hidden rounded-[2rem] border border-brand-gold/25 bg-brand-champagne shadow-[0_18px_55px_rgba(72,42,30,.07)] lg:grid-cols-[.75fr_1.25fr]"
+          data-motion-panel=""
+        >
           <div className="bg-empowerment-gradient p-8 text-white sm:p-10">
             <p className="font-script text-3xl text-brand-gold-soft">
               A place to become

@@ -13,6 +13,7 @@ import { SpeakingSection } from "@/components/landing/SpeakingSection";
 import { StoryBriefSection } from "@/components/landing/StoryBriefSection";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { SiteMotion } from "@/components/motion/SiteMotion";
 import {
   closingContent,
   contactContent,
@@ -43,6 +44,7 @@ export default function Home() {
         Skip to content
       </a>
       <Header />
+      <SiteMotion />
       <main id="main-content">
         <HeroSection content={heroContent} />
         <MeetLadyDerbySection content={meetContent} />

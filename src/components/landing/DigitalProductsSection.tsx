@@ -24,13 +24,17 @@ export function DigitalProductsSection({
           eyebrow={content.eyebrow}
           title={content.title}
         />
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div
+          className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          data-motion-horizontal=""
+        >
           {products.map((product) => (
             <ResourceCard key={product.title} product={product} />
           ))}
         </div>
         <div
           className="mt-16 grid overflow-hidden rounded-[2rem] border border-brand-gold/25 bg-white shadow-[0_25px_80px_rgba(72,42,30,.12)] lg:grid-cols-[1fr_.95fr]"
+          data-motion-panel=""
           id="lead-magnet"
         >
           <div className="relative z-10 overflow-hidden bg-empowerment-gradient p-8 text-white sm:p-10 lg:p-12">

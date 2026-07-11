@@ -43,13 +43,15 @@ request, then sends it through Resend when `RESEND_API_KEY` is set. Configure a
 verified sender in `RESEND_FROM_EMAIL`; enquiries are delivered to
 `CONTACT_TO_EMAIL`.
 
-The lead magnet and newsletter forms post `FormData` to the public HTTPS
-endpoints in:
+The newsletter form posts to `/api/newsletter`. It validates and sanitizes the
+request, then creates or updates the subscriber in MailerLite and adds them to
+`MAILERLITE_GROUP_ID` when `MAILERLITE_API_KEY` is set.
+
+The lead magnet form posts `FormData` to the public HTTPS endpoint in:
 
 - `NEXT_PUBLIC_LEAD_MAGNET_FORM_ACTION`
-- `NEXT_PUBLIC_NEWSLETTER_FORM_ACTION`
 
-These can point to MailerLite, Formspree, or a compatible custom endpoint. The
+This can point to MailerLite, Formspree, or a compatible custom endpoint. The
 frontend displays clear setup guidance instead of pretending a submission
 succeeded when no endpoint is configured.
 
@@ -65,7 +67,10 @@ automation. No PDF was included in the supplied assets.
 4. Set `NEXT_PUBLIC_SITE_URL` to the production domain.
 5. Add and verify the sending domain in Resend, then set
    `RESEND_FROM_EMAIL`.
-6. Deploy and submit a test lead-magnet request and contact enquiry.
+6. Add `MAILERLITE_API_KEY` and `MAILERLITE_GROUP_ID` for newsletter
+   subscriptions.
+7. Deploy and submit a test newsletter signup, lead-magnet request, and contact
+   enquiry.
 
 The build provides the landing page, privacy policy, contact route,
 `robots.txt`, `sitemap.xml`, Open Graph metadata, and JSON-LD schema.

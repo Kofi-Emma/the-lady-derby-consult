@@ -11,39 +11,49 @@ export function NewsletterForm() {
     "idle" | "submitting" | "success" | "error"
   >("idle");
   const [message, setMessage] = useState("");
-  const formAction =
-    process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ACTION ||
-    process.env.NEXT_PUBLIC_LEAD_MAGNET_FORM_ACTION;
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
-
-    if (!formAction) {
-      setStatus("error");
-      setMessage(
-        "Subscriptions are being connected. For now, follow @iamtheladyderby on Instagram.",
-      );
-      return;
-    }
+    const formData = new FormData(form);
 
     setStatus("submitting");
+    setMessage("");
 
     try {
-      const response = await fetch(formAction, {
+      const response = await fetch("/api/newsletter", {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: new FormData(form),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: String(formData.get("firstName") || ""),
+          email: String(formData.get("email") || ""),
+          website: String(formData.get("website") || ""),
+        }),
       });
+      const result = (await response.json().catch(() => null)) as {
+        message?: string;
+      } | null;
 
-      if (!response.ok) throw new Error("Unable to subscribe");
+      if (!response.ok) {
+        throw new Error(result?.message || "Unable to subscribe");
+      }
 
       form.reset();
       setStatus("success");
-      setMessage("You’re in. A fresh note of encouragement is on its way.");
-    } catch {
+      setMessage(
+        result?.message ||
+          "You're in. A fresh note of encouragement is on its way.",
+      );
+    } catch (error) {
       setStatus("error");
-      setMessage("That didn’t go through. Please try again in a moment.");
+      setMessage(
+        error instanceof Error
+          ? error.message
+          : "That didn't go through. Please try again in a moment.",
+      );
     }
   }
 
@@ -52,6 +62,14 @@ export function NewsletterForm() {
       className="grid gap-4 md:grid-cols-[1fr_1.25fr_auto] md:items-end"
       onSubmit={handleSubmit}
     >
+      <input
+        aria-hidden="true"
+        autoComplete="off"
+        className="hidden"
+        name="website"
+        tabIndex={-1}
+        type="text"
+      />
       <FormInput
         autoComplete="given-name"
         id="newsletter-first-name"

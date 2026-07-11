@@ -85,7 +85,10 @@ export function StoryBriefSection({
               src={content.image}
             />
           </div>
-          <div className="absolute -bottom-5 left-5 rounded-2xl bg-brand-red px-6 py-4 text-white shadow-xl">
+          <div
+            className="absolute -bottom-5 left-5 rounded-2xl bg-brand-red px-6 py-4 text-white shadow-xl"
+            data-motion-float=""
+          >
             <p className="font-script text-3xl leading-none text-brand-gold-soft">
               Still I rise
             </p>

@@ -20,7 +20,7 @@ export function LeadMagnetForm() {
     if (!formAction) {
       setStatus("error");
       setMessage(
-        "The free download is being connected. Please email theladyderby@gmail.com and we’ll send it personally.",
+        "The free download is being connected. Please email info@theladyderbyconsult.com and we will send it personally.",
       );
       return;
     }
@@ -48,7 +48,7 @@ export function LeadMagnetForm() {
     } catch {
       setStatus("error");
       setMessage(
-        "We couldn’t send the resource just yet. Please try again or email us directly.",
+        "We couldn't send the resource just yet. Please try again or email us directly.",
       );
     }
   }

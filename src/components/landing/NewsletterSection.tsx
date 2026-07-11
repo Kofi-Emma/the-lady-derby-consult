@@ -13,7 +13,10 @@ export function NewsletterSection({
   return (
     <Section className="py-14 sm:py-16" tone="champagne">
       <Container>
-        <div className="grid items-center gap-8 rounded-[2rem] border border-brand-gold/25 bg-white p-7 shadow-[0_20px_60px_rgba(72,42,30,.08)] sm:p-10 lg:grid-cols-[.7fr_1.3fr]">
+        <div
+          className="grid items-center gap-8 rounded-[2rem] border border-brand-gold/25 bg-white p-7 shadow-[0_20px_60px_rgba(72,42,30,.08)] sm:p-10 lg:grid-cols-[.7fr_1.3fr]"
+          data-motion-panel=""
+        >
           <div>
             <span className="flex size-11 items-center justify-center rounded-2xl bg-brand-red text-white">
               <MailOpen aria-hidden="true" className="size-5" />
