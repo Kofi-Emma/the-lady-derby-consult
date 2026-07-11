@@ -7,11 +7,14 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import type { NavigationItem } from "@/types";
 
+const mobileMenuTransitionMs = 620;
+
 export function MobileNav({ navigation }: { navigation: NavigationItem[] }) {
   const [open, setOpen] = useState(false);
+  const [menuMounted, setMenuMounted] = useState(false);
 
   useEffect(() => {
-    if (!open) {
+    if (!menuMounted) {
       return;
     }
 
@@ -21,7 +24,25 @@ export function MobileNav({ navigation }: { navigation: NavigationItem[] }) {
     return () => {
       document.body.style.overflow = originalOverflow;
     };
-  }, [open]);
+  }, [menuMounted]);
+
+  useEffect(() => {
+    if (open || !menuMounted) {
+      return;
+    }
+
+    const timeout = window.setTimeout(
+      () => setMenuMounted(false),
+      mobileMenuTransitionMs,
+    );
+
+    return () => window.clearTimeout(timeout);
+  }, [menuMounted, open]);
+
+  function openMenu() {
+    setMenuMounted(true);
+    setOpen(true);
+  }
 
   function closeMenu() {
     setOpen(false);
@@ -34,7 +55,7 @@ export function MobileNav({ navigation }: { navigation: NavigationItem[] }) {
         aria-expanded={open}
         aria-label={open ? "Close navigation menu" : "Open navigation menu"}
         className="group inline-flex min-h-10 items-center gap-2 rounded-full border border-brand-gold/28 bg-white/76 px-3.5 text-brand-red shadow-[0_10px_28px_rgba(72,42,30,.06)] backdrop-blur-xl transition duration-300 hover:border-brand-gold/55 hover:bg-white focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-brand-gold sm:min-h-11 sm:px-4"
-        onClick={() => setOpen((current) => !current)}
+        onClick={open ? closeMenu : openMenu}
         type="button"
       >
         <span className="text-[.78rem] font-bold tracking-[.16em] uppercase sm:text-[.82rem]">
@@ -47,11 +68,12 @@ export function MobileNav({ navigation }: { navigation: NavigationItem[] }) {
         )}
       </button>
       <div
-        className={`fixed inset-0 z-[70] flex h-dvh flex-col bg-brand-ivory p-4 transition duration-500 ease-[cubic-bezier(.16,1,.3,1)] sm:p-6 ${
+        aria-hidden={!open}
+        className={`fixed inset-0 z-[70] flex h-dvh transform-gpu flex-col bg-brand-ivory p-4 transition-[opacity,transform,filter] duration-[620ms] ease-[cubic-bezier(.22,1,.36,1)] sm:p-6 ${
           open
-            ? "visible translate-y-0 opacity-100"
-            : "invisible pointer-events-none translate-y-full opacity-0"
-        }`}
+            ? "pointer-events-auto translate-y-0 scale-100 opacity-100 blur-0"
+            : "pointer-events-none translate-y-5 scale-[.985] opacity-0 blur-[2px]"
+        } ${menuMounted ? "visible" : "invisible"}`}
         id="mobile-navigation"
       >
         <div className="flex items-center justify-between">
