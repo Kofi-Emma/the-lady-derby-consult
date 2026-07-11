@@ -205,22 +205,22 @@ export function SiteMotion() {
     if (revealTargets.length) {
       gsap.set(revealTargets, {
         autoAlpha: 0,
-        scale: isDesktop ? 0.92 : 0.82,
-        y: isDesktop ? 32 : 60,
+        scale: isDesktop ? 0.92 : 1,
+        y: isDesktop ? 32 : 28,
       });
 
       ScrollTrigger.batch(revealTargets, {
-        batchMax: isDesktop ? 16 : 5,
-        interval: isDesktop ? 0.02 : 0.08,
+        batchMax: isDesktop ? 16 : 8,
+        interval: isDesktop ? 0.02 : 0.04,
         once: true,
         onEnter: (batch) => {
           gsap.to(batch, {
             autoAlpha: 1,
             clearProps: "transform",
-            duration: isDesktop ? 0.48 : 0.88,
-            ease: motionEase,
+            duration: isDesktop ? 0.48 : 0.44,
+            ease: isDesktop ? motionEase : "power3.out",
             scale: 1,
-            stagger: isDesktop ? 0 : 0.07,
+            stagger: 0,
             y: 0,
           });
         },
@@ -273,7 +273,7 @@ export function SiteMotion() {
       "[data-motion-horizontal]",
     );
     horizontalTracks.forEach((track) => {
-      if (!track.children.length) {
+      if (!isDesktop || !track.children.length) {
         return;
       }
 
@@ -333,37 +333,39 @@ export function SiteMotion() {
       });
     });
 
-    const tactileCards = gsap.utils.toArray<HTMLElement>(
-      "[data-motion-card], [data-motion-panel]",
-    );
-    tactileCards.forEach((card) => {
-      const onPointerEnter = () => {
-        gsap.to(card, {
-          duration: 0.32,
-          ease: snapEase,
-          overwrite: "auto",
-          scale: 1.018,
-          y: -7,
-        });
-      };
-      const onPointerLeave = () => {
-        gsap.to(card, {
-          duration: 0.42,
-          ease: snapEase,
-          overwrite: "auto",
-          scale: 1,
-          y: 0,
-        });
-      };
+    if (isDesktop) {
+      const tactileCards = gsap.utils.toArray<HTMLElement>(
+        "[data-motion-card], [data-motion-panel]",
+      );
+      tactileCards.forEach((card) => {
+        const onPointerEnter = () => {
+          gsap.to(card, {
+            duration: 0.32,
+            ease: snapEase,
+            overwrite: "auto",
+            scale: 1.018,
+            y: -7,
+          });
+        };
+        const onPointerLeave = () => {
+          gsap.to(card, {
+            duration: 0.42,
+            ease: snapEase,
+            overwrite: "auto",
+            scale: 1,
+            y: 0,
+          });
+        };
 
-      card.addEventListener("pointerenter", onPointerEnter);
-      card.addEventListener("pointerleave", onPointerLeave);
+        card.addEventListener("pointerenter", onPointerEnter);
+        card.addEventListener("pointerleave", onPointerLeave);
 
-      cleanupCallbacks.push(() => {
-        card.removeEventListener("pointerenter", onPointerEnter);
-        card.removeEventListener("pointerleave", onPointerLeave);
+        cleanupCallbacks.push(() => {
+          card.removeEventListener("pointerenter", onPointerEnter);
+          card.removeEventListener("pointerleave", onPointerLeave);
+        });
       });
-    });
+    }
 
     const refresh = window.setTimeout(() => ScrollTrigger.refresh(), 250);
 
