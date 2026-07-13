@@ -39,9 +39,13 @@ Copy `.env.example` to `.env.local` and provide the values needed by your form
 providers.
 
 The contact form posts to `/api/contact`. It validates and sanitizes the
-request, then sends it through Resend when `RESEND_API_KEY` is set. Configure a
-verified sender in `RESEND_FROM_EMAIL`; enquiries are delivered to
-`CONTACT_TO_EMAIL`.
+request, then sends the enquiry through Resend to `CONTACT_TO_EMAIL`:
+
+- `RESEND_API_KEY=<resend-api-key>`
+- `RESEND_FROM_EMAIL="The Lady Derby Website <info@theladyderbyconsult.com>"`
+- `CONTACT_TO_EMAIL=info@theladyderbyconsult.com`
+
+`RESEND_FROM_EMAIL` must use an email address from a domain verified in Resend.
 
 The newsletter form posts to `/api/newsletter`. It validates and sanitizes the
 request, then creates or updates the subscriber in MailerLite and adds them to
@@ -65,8 +69,8 @@ automation. No PDF was included in the supplied assets.
 3. Add the variables from `.env.example` in Project Settings → Environment
    Variables.
 4. Set `NEXT_PUBLIC_SITE_URL` to the production domain.
-5. Add and verify the sending domain in Resend, then set
-   `RESEND_FROM_EMAIL`.
+5. Add `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, and `CONTACT_TO_EMAIL` for the
+   contact form.
 6. Add `MAILERLITE_API_KEY` and `MAILERLITE_GROUP_ID` for newsletter
    subscriptions.
 7. Deploy and submit a test newsletter signup, lead-magnet request, and contact

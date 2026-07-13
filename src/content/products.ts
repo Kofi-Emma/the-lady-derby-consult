@@ -13,7 +13,7 @@ export const products: Product[] = [
   {
     title: "Faith To Legacy",
     description:
-      "Helping women transform pain into purpose and purpose into legacy.",
+      "Helping you transform pain into purpose and purpose into legacy.",
     cta: "PURCHASE NOW",
     image: "/images/ebook-faith-to-legacy.png",
     available: false,

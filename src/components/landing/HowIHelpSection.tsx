@@ -28,7 +28,7 @@ export function HowIHelpSection({
           >
             <div>
               <p className="font-script text-3xl text-brand-gold-soft">
-                Your journey matters
+                Your Journey Matters
               </p>
               <h3 className="mt-3 font-heading text-3xl leading-tight font-semibold">
                 Ready to take your next brave step?

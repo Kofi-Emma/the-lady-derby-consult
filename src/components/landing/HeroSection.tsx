@@ -34,7 +34,7 @@ export function HeroSection({ content }: { content: typeof heroContent }) {
         </div>
 
         <div
-          className="relative z-10 order-1 w-full max-w-none break-words lg:col-start-1 lg:mt-0 lg:max-w-[38rem] lg:pb-12"
+          className="relative z-10 order-1 w-full max-w-none break-words lg:col-start-1 lg:mt-0 lg:max-w-[38rem] lg:pb-12 text-center md:text-left"
           data-motion-hero-copy=""
         >
           <h1 className="font-heading text-[clamp(2.35rem,3.4vw,3.8rem)] leading-[.94] font-semibold text-brand-charcoal drop-shadow-[0_2px_16px_rgba(251,245,231,.75)]">
@@ -51,14 +51,14 @@ export function HeroSection({ content }: { content: typeof heroContent }) {
           data-motion-hero-actions=""
         >
           <Button
-            className="w-full px-5"
+            className="w-full px-5 !shadow-[0_12px_28px_rgba(147,21,27,.03)]"
             href="https://faith-from-fire.theladyderbyconsult.com/"
             showArrow
           >
             START YOUR TRANSFORMATION
           </Button>
           <Button
-            className="w-full !bg-brand-ivory/95 px-5 !text-brand-red shadow-[0_12px_28px_rgba(54,54,55,.1)]"
+            className="w-full !bg-brand-ivory/95 px-5 !text-brand-red shadow-[0_12px_28px_rgba(54,54,55,.01)]"
             href="#contact"
             variant="secondary"
           >

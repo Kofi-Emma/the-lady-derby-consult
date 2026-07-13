@@ -61,7 +61,7 @@ export function MeetLadyDerbySection({
         >
           <div className="bg-empowerment-gradient p-8 text-white sm:p-10">
             <p className="font-script text-3xl text-brand-gold-soft">
-              A place to become
+              A Place to Become
             </p>
             <h3 className="mt-3 font-heading text-3xl leading-tight font-semibold">
               {content.readinessTitle}

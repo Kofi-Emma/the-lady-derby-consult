@@ -41,7 +41,7 @@ export default function RootLayout({
       className={`${inter.variable} ${cormorant.variable} ${parisienne.variable} antialiased`}
       lang="en"
     >
-      <body>{children}</body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

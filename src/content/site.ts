@@ -11,7 +11,7 @@ export const siteConfig = {
     "The Lady Derby, led by Deborah Judah-Mensah, helps women heal, rediscover identity, rebuild confidence, rise through faith, and transform pain into purpose, power, profit, impact, and legacy.",
   positioning:
     "Faith-led confidence and reinvention mentor, identity and impact speaker, women empowerment advocate, burns survivor, communications and hospitality professional, and founder of IWoman Hub.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://theladyderby.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://theladyderbyconsult.com",
 };
 
 export const mainNavigation: NavigationItem[] = [

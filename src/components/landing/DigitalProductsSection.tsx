@@ -46,7 +46,7 @@ export function DigitalProductsSection({
               <BookOpenCheck aria-hidden="true" className="size-6" />
             </span>
             <p className="mt-7 font-script text-3xl text-brand-gold-soft">
-              A gift for your becoming
+              A Gift For Your Becoming
             </p>
             <h3 className="mt-3 max-w-lg font-heading text-4xl leading-[1.02] font-semibold sm:text-5xl">
               {content.leadTitle}

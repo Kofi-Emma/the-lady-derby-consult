@@ -90,7 +90,7 @@ export function StoryBriefSection({
             data-motion-float=""
           >
             <p className="font-script text-3xl leading-none text-brand-gold-soft">
-              Still I rise
+              Still I Rise
             </p>
           </div>
         </div>

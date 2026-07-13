@@ -3,8 +3,8 @@ import type { Service } from "@/types";
 export const heroContent = {
   eyebrow: "Faith-led transformation for women",
   title:
-    "From Surviving to Becoming Helping Women Heal, Rise, Reinvent & Build Legacy",
-  highlightedTitle: "Through Faith, Purpose & Transformation",
+    "From Surviving to Becoming: Helping Women Heal, Rise, Reinvent & Build Legacy",
+  highlightedTitle: "Through Faith, Purpose & Transformation.",
   description:
     "Faith-led confidence and reinvention mentor, identity and impact speaker, women empowerment advocate, burns survivor, communications and hospitality professional, and founder of IWoman Hub — empowering women to rediscover their identity, rebuild confidence, and transform pain into purpose, power, profit and impact.",
   statement:
@@ -25,7 +25,7 @@ export const meetContent = {
     "Through transformational mentorship, storytelling, digital resources, personal development and women-centered community initiatives, I help women reconnect with who they truly are and step boldly into the future they were created for.",
     "Because I know what it feels like to start over. And I know that healing is possible.",
   ],
-  readinessTitle: "This platform was built for women who are ready to:",
+  readinessTitle: "This platform is built for women who are ready to:",
   readiness: [
     "Heal spiritually and emotionally",
     "Grow in faith and identity",
@@ -81,7 +81,7 @@ export const storyContent = {
   ],
   paragraphs: [
     "But instead of allowing pain to silence me, I chose to heal, grow, rebuild, and rise.",
-    "My journey taught me that confidence is not pretending to have it all together.",
+    "My journey has taught me that confidence is not pretending to have it all together.",
   ],
   highlight:
     "Confidence is choosing to stand again after life tried to break you.",
@@ -174,15 +174,10 @@ export const speakingContent = {
   topicsTitle: "Signature speaking topics",
   topics: [
     "Identity & Healing",
-    "Faith & Purpose",
-    "Confidence After Trauma",
+    "Faith, Purpose & Legacy",
+    "Confidence & Resilience Through and Beyond Challenging Seasons",
     "Reinvention & Starting Over",
-    "Women Empowerment",
-    "Emotional Healing & Resilience",
-    "Transformation Through Faith",
-    "Building Purpose Through Pain",
-    "Hospitality & Women Entrepreneurship",
-    "Leadership & Community Impact",
+    "Women Empowerment, Girls' Development & Community Impact",
   ],
   idealTitle: "Ideal for",
   idealFor: [
@@ -214,9 +209,7 @@ export const themesContent = {
     "Confidence",
     "Grace",
     "Purpose",
-    "Leadership",
-    "Women Empowerment",
-    "Hospitality",
+    "Women & Girls Empowerment",
     "Community",
     "Legacy",
     "Impact",

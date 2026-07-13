@@ -16,7 +16,7 @@ export function SpeakingSection({
     <Section id="speaking" tone="white">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[.88fr_1.12fr] lg:gap-18">
-          <div className="relative mx-auto w-[94%] max-w-[470px]">
+          <div className="relative mx-auto w-[94%] max-w-[470px] mb-6">
             <div className="relative aspect-[3/4] overflow-hidden rounded-[7rem_2rem_7rem_2rem] bg-brand-champagne shadow-[0_30px_80px_rgba(54,54,55,.15)]">
               <Image
                 alt={content.imageAlt}
@@ -27,7 +27,7 @@ export function SpeakingSection({
               />
             </div>
             <div
-              className="absolute -right-3 bottom-8 flex items-center gap-3 rounded-2xl border border-brand-gold/35 bg-white/92 px-5 py-4 shadow-xl backdrop-blur sm:-right-8"
+              className="absolute -right-3 bottom-[-2rem] flex items-center gap-3 rounded-2xl border border-brand-gold/35 bg-white/92 px-5 py-4 shadow-xl backdrop-blur sm:-right-8"
               data-motion-float=""
             >
               <span className="flex size-10 items-center justify-center rounded-full bg-brand-red text-white">

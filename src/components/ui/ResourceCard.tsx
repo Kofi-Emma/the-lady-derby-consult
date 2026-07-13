@@ -21,14 +21,10 @@ export function ResourceCard({ product }: { product: Product }) {
           />
         ) : (
           <div className="absolute inset-5 flex flex-col items-center justify-center rounded-2xl bg-empowerment-gradient p-7 text-center text-white">
-            <span className="font-script text-3xl text-brand-gold-soft">
-              The Lady Derby
-            </span>
-            <span className="my-5 h-px w-14 bg-brand-gold-soft/70" />
             <span className="font-heading text-3xl leading-none font-semibold">
               {product.title}
             </span>
-            <span className="mt-6 text-[.65rem] font-bold tracking-[.2em] uppercase">
+            <span className="mt-5 text-sm font-bold text-brand-gold-soft">
               New resource coming soon
             </span>
           </div>
